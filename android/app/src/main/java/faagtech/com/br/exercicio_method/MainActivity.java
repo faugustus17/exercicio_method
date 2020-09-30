@@ -21,32 +21,25 @@ public class MainActivity extends FlutterActivity {
         GeneratedPluginRegistrant.registerWith(this);
         new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(
                 (MethodCall call, MethodChannel.Result result) -> {
-                    /*Map<String, Object> params = call.arguments();
-                    if (call.method.equals("getData")){
-                        String fromParam = params.get("from").toString();
-                        int a = Integer.parseInt(params.get("a").toString());
-                        int b = Integer.parseInt(params.get("b").toString());
-                        int x = a + b;
-                        result.success(getData()+ " Back to "+ fromParam + x);
-                    }else{
-                        result.notImplemented();
-                    }*/
                     switch (call.method){
                         case "exe1001":
                             int a = call.argument("valorA");
                             int b = call.argument("valorB");
                             result.success(getExe1001(a, b));
                             break;
-                        /*case "exe1009":
+                        case "exe1009":
+                            double salario = call.argument("salario");
+                            double vendas = call.argument("vendas");
                             result.success(getExe1009(salario, vendas));
                             break;
-                        case "exe1018":
+                        /*case "exe1018":
                             result.success(getExe1018(valorNota));
-                            break;
+                            break;*/
                         case "exe2344":
-                            result.success(getExe2344());
+                            String nota = call.argument("nota");
+                            result.success(getExe2344(Integer.parseInt(nota)));
                             break;
-                        case "exe3040":
+                        /*case "exe3040":
                             result.success(getExe3040());
                             break;*/
                         default:
@@ -64,7 +57,6 @@ public class MainActivity extends FlutterActivity {
     private double getExe1009(double salario, double vendas){
         double total;
         return total = salario + (vendas * 0.15);
-
     }
 
     private ArrayList<String> getExe1018(int valorNota){
