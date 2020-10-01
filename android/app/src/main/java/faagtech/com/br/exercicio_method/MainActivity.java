@@ -32,9 +32,10 @@ public class MainActivity extends FlutterActivity {
                             double vendas = call.argument("vendas");
                             result.success(getExe1009(salario, vendas));
                             break;
-                        /*case "exe1018":
+                        case "exe1018":
+                            int valorNota = call.argument("valorNota");
                             result.success(getExe1018(valorNota));
-                            break;*/
+                            break;
                         case "exe2344":
                             String nota = call.argument("nota");
                             result.success(getExe2344(Integer.parseInt(nota)));
