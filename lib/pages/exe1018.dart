@@ -8,13 +8,11 @@ class Exe1018 extends StatefulWidget {
 
 class _Exe1018State extends State<Exe1018> {
   static const platform = const MethodChannel('JavaChannel');
-  String msg="";
-
+  int count= 0;
+  List<dynamic> result;
   final _valorNotaController = TextEditingController();
 
   Future _actionExe1018(valorNota) async{
-    List<dynamic> result;
-
     try{
       result = await platform.invokeMethod("exe1018",
           {
@@ -24,7 +22,7 @@ class _Exe1018State extends State<Exe1018> {
       print(e.message);
     }
     setState(() {
-      msg = result.toString();
+      count = result.length;
     });
   }
 
@@ -57,30 +55,18 @@ class _Exe1018State extends State<Exe1018> {
             ),
             Expanded(
               child: ListView.builder(
-                  padding: const EdgeInsets.all(8),
-                  itemCount: msg.length,
+                  padding: const EdgeInsets.all(5),
+                  itemCount: count,
                   itemBuilder: (BuildContext context, int index){
                     return ListTile(
                       title: Text(
-                        '${msg[index]}',
-                        //textAlign: TextAlign.justify,
+                        '${result[index]}',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20.0,
                         ),
                       ),
                     );
-                    /*return Container(
-                      height: 30,
-                      child: Center(
-                        child: Text(
-                          '${msg[index]}',
-                          style: TextStyle(fontSize: 20,
-                            color: Colors.blue[900],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    );*/
                   }
               ),
             ),
