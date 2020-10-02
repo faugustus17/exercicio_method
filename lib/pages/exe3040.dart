@@ -45,18 +45,6 @@ class _Exe3040State extends State<Exe3040> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              /*TextField(
-                decoration: InputDecoration(
-                  labelText: "Número de testes",
-                  border: OutlineInputBorder(),
-                ),
-                keyboardType: TextInputType.number,
-                controller: _nController,
-                autofocus: true,
-              ),
-              SizedBox(
-                height: 10,
-              ),*/
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 mainAxisSize: MainAxisSize.max,
