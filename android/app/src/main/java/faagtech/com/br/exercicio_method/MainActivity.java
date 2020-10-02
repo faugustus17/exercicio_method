@@ -40,9 +40,12 @@ public class MainActivity extends FlutterActivity {
                             String nota = call.argument("nota");
                             result.success(getExe2344(Integer.parseInt(nota)));
                             break;
-                        /*case "exe3040":
-                            result.success(getExe3040());
-                            break;*/
+                        case "exe3040":
+                            int h = call.argument("h");
+                            int d = call.argument("d");
+                            int g = call.argument("g");
+                            result.success(getExe3040(h, d, g));
+                            break;
                         default:
                             result.notImplemented();
                     }
@@ -95,14 +98,14 @@ public class MainActivity extends FlutterActivity {
         }
     }
 
-    private String getExe3040(int n, int h, int d, int g){
-        for (int i=0; i < n; i++){
+    private String getExe3040(/*int n,*/ int h, int d, int g){
+        //for (int i=0; i < n; i++){
             if (h >= 200 && h <= 300 && d >= 50 && g >= 150){
                 return "Sim";
             }else{
                 return "Não";
             }
-        }
-        return null;
+        //}
+        //return null;
     }
 }
