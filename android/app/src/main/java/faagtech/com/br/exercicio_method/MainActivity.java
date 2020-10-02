@@ -11,6 +11,8 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
+import static java.lang.String.valueOf;
+
 
 public class MainActivity extends FlutterActivity {
     private static final String CHANNEL = "JavaChannel";
@@ -65,19 +67,19 @@ public class MainActivity extends FlutterActivity {
 
     private ArrayList<String> getExe1018(int valorNota){
         ArrayList<String> qtdNotas = new ArrayList<>();
-        qtdNotas.add(valorNota / 100 + "notas(s) de R$ 100,00");
+        qtdNotas.add(valorNota / 100 + " notas(s) de R$ 100,00");
         valorNota %= 100;
-        qtdNotas.add(valorNota / 50 + "notas(s) de R$ 50,00");
+        qtdNotas.add(valorNota / 50 + " notas(s) de R$ 50,00");
         valorNota %= 50;
-        qtdNotas.add(valorNota / 20 + "notas(s) de R$ 20,00");
+        qtdNotas.add(valorNota / 20 + " notas(s) de R$ 20,00");
         valorNota %= 20;
-        qtdNotas.add(valorNota / 10 + "notas(s) de R$ 10,00");
+        qtdNotas.add(valorNota / 10 + " notas(s) de R$ 10,00");
         valorNota %= 10;
-        qtdNotas.add(valorNota / 5 + "notas(s) de R$ 5,00");
+        qtdNotas.add(valorNota / 5 + " notas(s) de R$ 5,00");
         valorNota %= 5;
-        qtdNotas.add(valorNota / 2 + "notas(s) de R$ 2,00");
+        qtdNotas.add(valorNota / 2 + " notas(s) de R$ 2,00");
         valorNota %= 2;
-        qtdNotas.add(valorNota / 1 + "notas(s) de R$ 1,00");
+        qtdNotas.add(valorNota / 1 + " notas(s) de R$ 1,00");
 
         return qtdNotas;
     }
@@ -98,12 +100,15 @@ public class MainActivity extends FlutterActivity {
         }
     }
 
-    private String getExe3040(/*int n,*/ int h, int d, int g){
+    private ArrayList<String> getExe3040(/*int n,*/ int h, int d, int g){
+        ArrayList<String> str = new ArrayList<>();
         //for (int i=0; i < n; i++){
             if (h >= 200 && h <= 300 && d >= 50 && g >= 150){
-                return "Sim";
+                str.add(valueOf(h)+" "+valueOf(d)+" "+valueOf(g)+" >>>> Sim");
+                return str;
             }else{
-                return "Não";
+                str.add(valueOf(h)+" "+valueOf(d)+" "+valueOf(g)+" >>>> Não");
+                return str;
             }
         //}
         //return null;

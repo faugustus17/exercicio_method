@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -14,10 +15,10 @@ class _Exe3040State extends State<Exe3040> {
   final _hController = TextEditingController();
   final _dController = TextEditingController();
   final _gController = TextEditingController();
-  String msg = " ";
+  List<dynamic> result;
+  int count = 0;
 
   Future _actionExe3040(h, d, g) async {
-    String result = "";
     try{
       result = await platform.invokeMethod("exe3040",
           { "h": h,
@@ -29,7 +30,7 @@ class _Exe3040State extends State<Exe3040> {
       print(e.message);
     }
     setState(() {
-      msg = result.toString();
+      count = result.length;
     });
   }
 
@@ -44,7 +45,7 @@ class _Exe3040State extends State<Exe3040> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              TextField(
+              /*TextField(
                 decoration: InputDecoration(
                   labelText: "Número de testes",
                   border: OutlineInputBorder(),
@@ -55,7 +56,7 @@ class _Exe3040State extends State<Exe3040> {
               ),
               SizedBox(
                 height: 10,
-              ),
+              ),*/
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 mainAxisSize: MainAxisSize.max,
@@ -68,6 +69,7 @@ class _Exe3040State extends State<Exe3040> {
                     ),
                     keyboardType: TextInputType.number,
                     controller: _hController,
+                    autofocus: true,
                   ),
                   SizedBox(
                     height: 5.0,
@@ -93,11 +95,22 @@ class _Exe3040State extends State<Exe3040> {
                   ),
                 ],
               ),
-              Text(
-                msg,
-                style: TextStyle(fontSize: 30,
-                  color: Colors.blue[900],
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(5.0),
+                  itemCount: count,
+                  itemBuilder: (context, index){
+                    return ListTile(
+                      title: Text(
+                        '${result[index]}',
+                        style: TextStyle(fontSize: 30,
+                          color: Colors.blue[900],
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    );
+                  },
                 ),
               ),
               SizedBox(
@@ -116,7 +129,6 @@ class _Exe3040State extends State<Exe3040> {
                 },
               ),
             ],
-
           ),
       ),
     );
