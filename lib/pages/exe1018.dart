@@ -34,7 +34,7 @@ class _Exe1018State extends State<Exe1018> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("URI 1001"),
+        title: Text("URI 1018"),
       ),
       body: Center(
         child: Column(
@@ -81,7 +81,7 @@ class _Exe1018State extends State<Exe1018> {
               ),
               onPressed: () {
                 _actionExe1018(int.parse(_valorNotaController.text));
-                _clear();
+                //_clear();
               },
             ),
           ],

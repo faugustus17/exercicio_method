@@ -30,12 +30,6 @@ class _Exe1009State extends State<Exe1009> {
     });
   }
 
-  void _clear(){
-    _nomeController.clear();
-    _salarioController.clear();
-    _vendasController.clear();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,16 +87,12 @@ class _Exe1009State extends State<Exe1009> {
               ),*/
               Container(
               child: Text(
-                msg,
+                "R\$ " + msg,
                 style: TextStyle(fontSize: 30,
                   color: Colors.blue[900],
                   fontWeight: FontWeight.bold,
                 ),
               )),
-              /*SizedBox(
-                height: 35.0,
-              ),*/
-
             RaisedButton(
               child: Text(
                 "Calcular",
@@ -111,7 +101,6 @@ class _Exe1009State extends State<Exe1009> {
               ),
               onPressed: () {
                 _actionExe1001(double.parse(_salarioController.text), double.parse(_vendasController.text));
-                _clear();
               },
             ),
           ],

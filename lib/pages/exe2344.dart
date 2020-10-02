@@ -37,7 +37,7 @@ class _Exe2344State extends State<Exe2344> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("URI 1001"),
+        title: Text("URI 2344"),
       ),
       body: Center(
         child: Column(
@@ -84,7 +84,7 @@ class _Exe2344State extends State<Exe2344> {
               ),
               onPressed: () {
                 _actionExe1001(_notaController.text);
-                _clear();
+                //_clear();
               },
             ),
           ],
